@@ -1,0 +1,361 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4 url('../images/neon-bg-aura.webp') center center / cover no-repeat fixed;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  transition: height 0.5s cubic-bezier(0.4,0,0.2,1);
+  overflow: hidden;
+  background: #fff;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 2em; /* Add this line for spacing */
+}
+
+/** Consolidated styles from Inline HTML into CSS **/
+#intro-overlay {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background:#5d2a87;
+  z-index:1000;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow: auto; 
+}
+
+#start-quiz-btn {
+  margin:1em;
+  padding:1em 2em;
+}
+
+#instructions-btn {
+  margin:1em;
+  padding:1em 2em;
+}
+
+#instructions-modal {
+  font-family: 'Oswald', Arial, sans-serif;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(93, 42, 135, 0.95); /* semi-transparent main purple */
+  z-index: 1100;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal-inner {
+  background: #5d2a87;
+  padding: 2em 2.5em;
+  border-radius: 16px;
+  max-width: 420px;
+  text-align: center;
+  position: relative;
+  border: 4px solid #facb35;
+  color: #facb35;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+#modal-inner h2 {
+  color: #facb35;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  letter-spacing: 1px;
+}
+
+#modal-inner p {
+  color: #fff;
+  font-size: 1.5em;
+  margin-bottom: 2em;
+}
+
+#close-modal-btn {
+  background-color: #facb35;
+  color: #5d2a87;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 2em;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.53em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: background 0.2s, color 0.2s;
+}
+
+#close-modal-btn:hover {
+  background-color: #fff;
+  color: #5d2a87;
+}
+
+#main-content {
+  background-color: #5d2a87;
+  color: #fff;
+}
+
+#logo-background {
+  background-color: #5d2a87; 
+  color: #fff;
+}
+
+#pub-logo {
+  max-width:450px;
+}
+
+#pub-logo-small {
+  max-width:300px;
+}
+/** End consolidation **/
+
+#category-buttons button:hover {
+  background: #de07fa;
+}
+
+#quiz-area {
+  margin-top: 2em;
+}
+
+#question {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+#options button {
+  display: block;
+  margin: 0.5em 0;
+  padding: 0.6em 1em;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f9f9f9;
+  cursor: pointer;
+  text-align: left;
+}
+
+#options button.selected {
+  background: #de07fa;
+  border-color: #facb35;
+}
+
+#next-btn {
+  margin-top: 1em;
+  padding: 0.7em 1.5em;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  max-width: 180px;
+  width: 100%;
+  min-width: 100px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#next-btn.hidden, #quiz-area.hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.fixed-height {
+  height: 250px;
+  
+}
+
+.category-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+/* Stack vertically on small screens */
+@media (max-width: 600px) {
+  .category-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+#category-buttons button {
+  background-color: #9901d4;
+  color: #fff;
+  border: 4px solid #facb35;
+  border-radius: 8px;
+  padding: 1em 2em;
+  font-size: 1.1em;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.4em;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0.5em 0;
+  transition: background 0.2s, border-color 0.2s;
+  width: 200px; 
+  box-sizing: border-box;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#quiz-area button {
+  background-color: #9901d4;
+  color: #fff;
+  border: 4px solid #facb35;
+  border-radius: 8px;
+  padding: 1em 2em;
+  font-size: 1.1em;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.4em;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0.5em 0;
+  transition: background 0.2s, border-color 0.2s;
+  width: 300px; 
+  box-sizing: border-box;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.oswald-unique {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+p {
+  font-family: 'Oswald', Arial, sans-serif;
+  max-width: 850px;   
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5em;        
+  padding-right: 1.5em;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#question {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 2em;
+}
+
+#score {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+#question,
+#score,
+#options {
+  text-align: center;
+}
+
+.fade-in {
+  animation: fadein-animation 0.7s forwards;
+}
+.fade-out {
+  animation: fadeout-animation 0.7s forwards;
+}
+@keyframes fadein-animation {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeout-animation {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+#myProgress {
+    width: 100%;
+    background-color: #ddd;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+#myBar {
+    height: 30px;
+    background-color: #facb35;
+    border-radius: 8px;
+    /* width of the bar set initially to 0% to hide it */
+    
+    width: 0%;
+    /* transition for smooth animation */
+    
+    transition: all ease-in-out 0.5s;
+}
+
+#results-table-container {
+  margin-top: 2em;
+  text-align: center;
+}
+
+#results-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%;
+  background: #fff;
+  color: #5d2a87;
+  font-family: 'Oswald', Arial, sans-serif;
+}
+
+#results-table th, #results-table td {
+  border: 2px solid #facb35;
+  padding: 0.7em 1em;
+  font-size: 1.2em;
+}
+
+#results-table th {
+  background: #facb35;
+  color: #5d2a87;
+}
+
+#results-table tr:nth-child(even) {
+  background: #f4f4f4;
+}
+
+.faderbtn {
+  background-color: #5d2a87;
+  color: #facb35;
+  border: 4px solid #facb35;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.3em;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0.5em auto;
+  display: block;
+  transition: background 0.2s, border-color 0.2s;
+  width: auto; /* or your preferred width */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#intro-overlay .faderbtn {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
