@@ -15,6 +15,20 @@ body {
   margin-top: 2em; /* Add this line for spacing */
 }
 
+
+#options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 600px) {
+  #options {
+    grid-template-columns: 1fr;
+  }
+}
+
 /** Consolidated styles from Inline HTML into CSS **/
 #intro-overlay {
   position:fixed;
